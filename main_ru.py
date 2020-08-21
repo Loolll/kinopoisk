@@ -10,6 +10,8 @@ if __name__ == '__main__':
     with open('filters_ru', 'r', encoding='UTF-8') as file:
         row_text = ''.join([x for x in file.read()])
     input_countries = row_text.split('\n')[0].split()
+    if not len(input_countries):
+        input_countries = str(input()).split()
     output_countries: list = []
     for country in input_countries:
         if country in countries:
@@ -18,6 +20,8 @@ if __name__ == '__main__':
             print(f'Country with name {country} does not founded. skipped')
 
     input_genres = row_text.split('\n')[1].split()
+    if not len(input_genres):
+        input_genres = str(input()).split()
     output_genres = []
     for genre in input_genres:
         if genre in genres:
